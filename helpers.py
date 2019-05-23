@@ -2,6 +2,9 @@ import functools
 
 
 def method_dispatch(func):
+    """
+    Support single dispatch of a class's method 
+    """
     dispatcher = functools.singledispatch(func)
 
     def wrapper(*args, **kw):

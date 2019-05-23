@@ -5,6 +5,9 @@ from models.models import EventModel, AggregateModel, Order, ToDo
 
 @click.command()
 def create_database():
+    """
+    Hacky way to init a table
+    """
     database.create_tables([EventModel, AggregateModel, Order, ToDo])
     click.echo("Done create tables")
 

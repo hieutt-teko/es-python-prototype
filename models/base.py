@@ -6,6 +6,11 @@ database = pw.MySQLDatabase("espro")
 
 
 class JSONField(pw.TextField):
+    """
+    Simple and dummy way to support JSON.
+    TODO: find more optimise way
+    """
+
     def db_value(self, value):
         return json.dumps(value)
 

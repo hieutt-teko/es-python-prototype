@@ -23,6 +23,9 @@ class OrderAggregate:
 
     @classmethod
     def create(cls, user_id):
+        """
+        Helper static method create new Order
+        """
         init_event = OrderCreatedEvent(id=uuid.uuid4(), user_id=user_id)
         init_event_stream = EventStream(events=[init_event], version=1)
         instance = cls(init_event_stream)
@@ -31,6 +34,9 @@ class OrderAggregate:
 
     @method_dispatch
     def apply(self, event):
+        """
+        Polymorphism way to run `apply` into an event.
+        """
         raise ValueError("Unknown event!")
 
     @apply.register(OrderCreatedEvent)

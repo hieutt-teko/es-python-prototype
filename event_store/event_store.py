@@ -9,6 +9,9 @@ from events.events import Event
 class EventStore(abc.ABCMeta):
     @abc.abstractmethod
     def load_stream(self, aggregate_id: uuid.UUID) -> EventStream:
+        """
+        Load and event stream of an aggregate
+        """
         pass
 
     @abc.abstractmethod
@@ -18,4 +21,7 @@ class EventStore(abc.ABCMeta):
         expect_version: Optional[int],
         events: List[Event],
     ) -> None:
+        """
+        Add new entity into an event stream
+        """
         pass

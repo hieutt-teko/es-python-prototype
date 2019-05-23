@@ -1,0 +1,17 @@
+import uuid
+from dataclasses import dataclass
+
+
+class Command:
+    pass
+
+
+@dataclass
+class OrderCreatedCommand(Command):
+    id: uuid.UUID
+
+
+@dataclass
+class OrderAttributeChangeCommand(Command):
+    user_id: int
+    status: str
